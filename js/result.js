@@ -85,6 +85,15 @@ $(function(){
             $('#text').html('当前第' + num + '页');
         }
     });
+    $('#translate').on('click',function(){
+        var appid='2015063000000001';
+        var q='myapple';
+        var salt='1435660288'
+        $.get('http://fanyi-api.baidu.com/api/trans/vip/translate',{q:q,from:'en',to:'zh',appid:appid,
+            salt:salt,sign:appid+q+salt+"12345"},function(data){
+            console.log('译文'+data)
+        })
+    })
 })
 
 function autoScroll(obj){
