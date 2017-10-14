@@ -1,0 +1,1074 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>鹰眼搜</title>
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_436100_2i3x3y2z6ph6ko6r.css"/>
+    <link rel="stylesheet" href="css/result.css"/>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="http://cdn.staticfile.org/twitter-bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script src="http://cdn.staticfile.org/highlight.js/7.3/highlight.min.js"></script>
+    <script src="js/jqpaginator.min.js"></script>
+    <script charset="GBK" src="js/result.js"></script>
+</head>
+<body>
+    <div class="main">
+        <div class="header">
+            <div class="yy-logo">
+                <a href="index.html">鹰眼搜</a>
+            </div>
+            <div class="search-group">
+                <input type="text"/>
+                <span class="search-btn">鹰眼一下</span>
+            </div>
+            <div class="product-menu">
+                <ul class="product-list">
+                    <li class="menu-li" id="eagle-class">
+                        <a href="#">鹰学堂</a>
+                        <ul class="more-li">
+                            <li><a href="">小鹰学堂</a></li>
+                            <li><a href="">中鹰学堂</a></li>
+                            <li><a href="">大鹰学堂</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-li"><a href="#">产品介绍</a></li>
+                    <li class="menu-li"><a href="#">搜索秘籍</a></li>
+                    <li class="menu-li sign-btn">
+                        <a href="#" id="log-in"><i class="icon iconfont icon-denglu1"></i>
+                            登录</a>
+                        <a href="#" id="sign-in"><i class="icon iconfont icon-zhuce1"></i>
+                            免费注册</a></li>
+                </ul>
+            </div>
+        </div>
+        <ul class="yys-tips">
+            <li>
+                <input type="checkbox"/>
+            </li>
+            <li class="tip-li active">
+                <span>通用引擎</span>
+            </li>
+            <li class="tip-li">
+                <span class="drop-title"><span class="mySelect" id="sel1">亚洲区域</span><i class="icon iconfont icon-down"></i></span>
+                <ul class="dropdown-menu">
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="10">中国香港(繁体中文|英语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="11">中国大陆(简体中文)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="12">中国台湾(繁体中文)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="13">日本(日语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="14">韩国(韩语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="94">菲律宾(菲律宾语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="95">新加坡(英语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="96">马来西亚(马来语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="97">老挝(老挝语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="98">孟加拉国(孟加拉语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="99">蒙古(蒙古语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="100">尼泊尔(英语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="101">卡塔尔(阿拉伯语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="102">泰国(泰语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="103">巴林(阿拉伯语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="104">巴基斯坦(波斯语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="105">土耳其(土耳其语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="106">阿曼(阿拉伯语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="107">印尼(印度尼西亚语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="108">印度(印地语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="109">阿联酋(波斯语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="110">越南(越南语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="111">以色列(阿拉伯语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="112">马尔代夫(英语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="113">印度尼西亚(英语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="114">柬埔寨(柬埔寨语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="115">缅甸(缅甸语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="116">不丹(英语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="117">斯里兰卡(英语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="118">哈萨克斯坦(哈萨克语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="119">吉尔吉斯斯坦(吉尔吉斯语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="120">乌兹别克斯坦(乌兹别克语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="121">土库曼斯坦(土库曼语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="122">阿富汗(波斯语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="123">伊拉克(阿拉伯语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="124">伊朗(波斯语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="125">叙利亚(叙利亚语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="126">约旦(阿拉伯语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="127">黎巴嫩(阿拉伯语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="128">卡塔尔(阿拉伯语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="129">科威特(阿拉伯语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="130">也门(阿拉伯语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="131">格鲁吉亚(阿拉伯语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="132">阿塞拜疆(土耳其语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="133">塞浦路斯(塞浦路斯语)</a>
+                    </li>
+
+
+                </ul>
+            </li>
+            <li class="tip-li">
+                <span class="drop-title"><span class="mySelect" id="sel2">欧洲区域</span><i class="icon iconfont icon-down"></i></span>
+                <ul class="dropdown-menu">
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="1">英国(英语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="2">法国(法语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="3">德国(德语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="4">荷兰(荷兰语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="5">西班牙(西班牙语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="6">奥地利(德语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="7">丹麦(丹麦语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="8">波兰(波兰语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="9">捷克(捷克语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="24">芬兰(芬兰语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="25">瑞士(德语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="26">瑞典(意大利语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="27">俄罗斯(俄罗斯语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="28">乌克兰(乌克兰语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="29">爱尔兰(爱尔兰语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="30">斯洛文尼亚(斯洛文尼亚语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="31">比利时(荷兰语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="32">挪威(挪威语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="33">保加利亚(保加利亚语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="34">意大利(意大利语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="35">匈牙利(匈牙利语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="36">克罗地亚(克罗地亚语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="37">葡萄牙(葡萄牙语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="38">罗马尼亚(罗马尼亚语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="39">希腊(希腊语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="40">冰岛(冰岛语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="41">爱沙尼亚(爱沙尼亚语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="42">列支敦士登(英语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="43">卢森堡(德语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="44">摩纳哥(法语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="45">塞尔维亚(塞尔维亚语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="46">马其顿(马其顿语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="47">波斯尼亚(波斯尼亚语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="48">圣马力诺(意大利语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="49">黑山(波斯尼亚语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="50">波黑(塞尔维亚语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="51">马耳他(马耳他语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="52">根西(法语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="53">安道尔(加泰尼利亚语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="54">梵蒂冈(意大利语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="55">阿尔巴尼亚(阿尔巴尼亚语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="56">拉脱维亚(拉脱维亚语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="57">立陶宛(立陶宛语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="58">摩尔多瓦(摩尔多瓦语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="59">斯洛伐克(斯洛伐克语)</a>
+                    </li>
+
+
+                </ul>
+            </li>
+            <li class="tip-li">
+                <span class="drop-title"><span class="mySelect" id="sel3">美洲区域</span><i class="icon iconfont icon-down"></i></span>
+                <ul class="dropdown-menu">
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="15">美国(英语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="16">加拿大(英语|法语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="17">墨西哥(西班牙语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="18">巴拉圭(西班牙语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="19">阿根廷(西班牙语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="61">古巴(西班牙语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="62">乌拉圭(西班牙语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="63">智利(西班牙语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="64">哥斯达黎加(西班牙语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="65">巴西(葡萄牙语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="66">波多黎各(西班牙语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="67">哥伦比亚(西班牙语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="68">秘鲁(西班牙语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="69">巴拿马(西班牙语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="70">多米尼加(西班牙语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="71">危地马拉(西班牙语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="72">伯利兹(西班牙语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="73">萨尔瓦多(西班牙语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="74">洪都拉斯(西班牙语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="75">尼加拉瓜(西班牙语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="76">巴哈马(英语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="77">牙买加(英语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="78">格林纳丁斯(英语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="79">特立尼达/多巴哥(英语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="80">委内瑞拉(西班牙语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="81">圭亚那(英语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="82">厄瓜多尔(西班牙语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="83">玻利维亚(西班牙语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="84">安提瓜和巴布达(英语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="85">海地(海地语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="86">圣基茨和尼维斯(英语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="87">圣卢西亚(英语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="88">圣文森特(英语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="89">格林纳达(英语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="90">巴巴多斯(英语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="91">荷属安的列斯(英语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="92">法属圭亚那(英语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="93">苏里南(英语)</a>
+                    </li>
+
+
+                </ul>
+            </li>
+            <li class="tip-li">
+                <span class="drop-title"><span class="mySelect" id="sel4">大洋洲区域</span><i class="icon iconfont icon-down"></i></span>
+                <ul class="dropdown-menu">
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="20">澳大利亚(英语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="21">新西兰(英语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="134">瑙鲁(英语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="135">斐济(英语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="136">所罗门群岛(英语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="137">帕劳(西班牙语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="138">瓦努阿图(英语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="139">基里巴斯(英语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="140">图瓦卢(英语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="141">密克罗尼西亚(英语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="142">马绍尔群岛(英语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="143">库克群岛(英语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="144">汤加(英语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="145">巴布亚新几内亚(英语)</a>
+                    </li>
+
+
+                </ul>
+            </li>
+            <li class="tip-li">
+                <span class="drop-title"><span class="mySelect" id="sel5">非洲区域</span><i class="icon iconfont icon-down"></i></span>
+                <ul class="dropdown-menu">
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="22">南非(南非荷兰语|英语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="23">埃塞俄比亚(阿姆哈拉语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="146">利比亚(阿拉伯语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="147">埃及(荷兰语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="148">赞比亚(英语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="149">尼日利亚(英语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="150">刚果(刚果语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="151">加纳(英语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="152">肯尼亚(英语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="153">毛里求斯(英语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="154">纳米比亚(南非荷兰语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="155">摩洛哥(英语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="156">苏丹(英语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="157">突尼斯(英语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="158">阿尔及利亚(英语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="159">厄立特里亚(英语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="160">索马里(英语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="161">吉布提(英语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="162">坦桑尼亚(英语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="163">乌干达(英语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="164">卢旺达(英语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="165">塞舌尔(英语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="166">布隆迪(英语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="167">乍得(英语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="168">中非(英语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="169">喀麦隆(英语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="170">赤道几内亚(英语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="171">加蓬(英语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="172">圣多美和普林西比(葡萄牙语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="173">毛里塔尼亚(英语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="174">塞内加尔(法语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="175">冈比亚(法语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="176">马里(英语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="177">布基纳法索(英语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="178">几内亚(英语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="179">佛得角(英语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="180">塞拉利昂(英语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="181">利比里亚(英语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="182">多哥(法语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="183">贝宁(法语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="184">尼日尔(法语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="185">安哥拉(葡萄牙语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="186">津巴布韦(葡萄牙语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="187">马拉维(英语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="188">莫桑比克(英语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="189">博茨瓦纳(英语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="190">纳米比亚(英语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="191">斯威士兰(英语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="192">莱索托(英语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="193">马达加斯加(英语)</a>
+                    </li>
+
+                    <li>
+                        <a class="typeslect" href="javascript:void(0);" cid="194">科摩罗(英语)</a>
+                    </li>
+
+
+                </ul>
+            </li>
+            <!--<li>-->
+                <!--<label for="all-mate">广泛匹配</label>-->
+                <!--<input type="checkbox" id="all-mate"/>-->
+            <!--</li>-->
+        </ul>
+        <div class="yys-content">
+            <div class="yys-msg">
+                <div class="search-time">
+                    <span>30</span>results(搜索耗时<span>1.690</span>秒)
+                </div>
+                <div class="info-scroll" id="FontScroll">
+                    <i class="icon iconfont icon-tongzhi"></i>
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <p class="scroll-p">
+                                    1今天<span>Beacuse</span>. 已搜索到<span>100</span>个客户
+                                </p>
+                                <p class="scroll-p">
+                                    今天<span>Beacuse</span>. 已获得<span>260</span>个邮箱
+                                </p>
+                                <p class="scroll-p">
+                                    今天<span>Beacuse</span>. 已找到<span>10</span>个企业
+                                </p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <p class="scroll-p">
+                                    2今天<span>Beacuse</span>. 已搜索到<span>100</span>个客户
+                                </p>
+                                <p class="scroll-p">
+                                    今天<span>Beacuse</span>. 已获得<span>260</span>个邮箱
+                                </p>
+                                <p class="scroll-p">
+                                    今天<span>Beacuse</span>. 已找到<span>10</span>个企业
+                                </p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <p class="scroll-p">
+                                    3今天<span>Beacuse</span>. 已搜索到<span>100</span>个客户
+                                </p>
+                                <p class="scroll-p">
+                                    今天<span>Beacuse</span>. 已获得<span>260</span>个邮箱
+                                </p>
+                                <p class="scroll-p">
+                                    今天<span>Beacuse</span>. 已找到<span>10</span>个企业
+                                </p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="info-content">
+                <div class="info-list">
+                    <div class="info-title">
+                        <span>
+                            <input type="checkbox"/>
+                            <a href="" target="_blank">秘密（トップ･シークレット）～The Revelation～</a>
+                            <span class="translate-btn">翻译</span>
+                        </span>
+                    </div>
+                    <div class="info-intro">
+                        好讀第17年了。 有好讀真好，有你也真好。但不知遍及各地的你，
+                        究竟有多少。若你從未或很久沒贊助過好讀，請按這裡
+                    </div>
+                    <div class="info-url">
+                        <a href="#" target="_blank">http://www.vap.co.jp/top.secret/
+                        </a>
+                    </div>
+                    <div class="getInfo-box">
+                        <span class="getInfo-btn">
+                            提取联系信息
+                        </span>
+                    </div>
+                </div>
+                <div class="info-list">
+                    <div class="info-title">
+                        <span>
+                            <input type="checkbox"/>
+                            <a href="" target="_blank">秘密（トップ･シークレット）～The Revelation～</a>
+                            <span class="translate-btn">翻译</span>
+                        </span>
+                    </div>
+                    <div class="info-intro">
+                        好讀第17年了。 有好讀真好，有你也真好。但不知遍及各地的你，
+                        究竟有多少。若你從未或很久沒贊助過好讀，請按這裡
+                    </div>
+                    <div class="info-url">
+                        <a href="#" target="_blank">http://www.vap.co.jp/top.secret/
+                        </a>
+                    </div>
+                    <div class="getInfo-box">
+                        <span class="getInfo-btn">
+                            提取联系信息
+                        </span>
+                    </div>
+                </div>
+                <div class="info-list">
+                    <div class="info-title">
+                        <span>
+                            <input type="checkbox"/>
+                            <a href="" target="_blank">秘密（トップ･シークレット）～The Revelation～</a>
+                            <span class="translate-btn">翻译</span>
+                        </span>
+                    </div>
+                    <div class="info-intro">
+                        好讀第17年了。 有好讀真好，有你也真好。但不知遍及各地的你，
+                        究竟有多少。若你從未或很久沒贊助過好讀，請按這裡
+                    </div>
+                    <div class="info-url">
+                        <a href="#" target="_blank">http://www.vap.co.jp/top.secret/
+                        </a>
+                    </div>
+                    <div class="getInfo-box">
+                        <span class="getInfo-btn">
+                            提取联系信息
+                        </span>
+                    </div>
+                </div>
+                <div class="info-list">
+                    <div class="info-title">
+                        <span>
+                            <input type="checkbox"/>
+                            <a href="" target="_blank">秘密（トップ･シークレット）～The Revelation～</a>
+                            <span class="translate-btn">翻译</span>
+                        </span>
+                    </div>
+                    <div class="info-intro">
+                        好讀第17年了。 有好讀真好，有你也真好。但不知遍及各地的你，
+                        究竟有多少。若你從未或很久沒贊助過好讀，請按這裡
+                    </div>
+                    <div class="info-url">
+                        <a href="#" target="_blank">http://www.vap.co.jp/top.secret/
+                        </a>
+                    </div>
+                    <div class="getInfo-box">
+                        <span class="getInfo-btn">
+                            提取联系信息
+                        </span>
+                    </div>
+                </div>
+                <div class="info-list">
+                    <div class="info-title">
+                        <span>
+                            <input type="checkbox"/>
+                            <a href="" target="_blank">秘密（トップ･シークレット）～The Revelation～</a>
+                            <span class="translate-btn">翻译</span>
+                        </span>
+                    </div>
+                    <div class="info-intro">
+                        好讀第17年了。 有好讀真好，有你也真好。但不知遍及各地的你，
+                        究竟有多少。若你從未或很久沒贊助過好讀，請按這裡
+                    </div>
+                    <div class="info-url">
+                        <a href="#" target="_blank">http://www.vap.co.jp/top.secret/
+                        </a>
+                    </div>
+                    <div class="getInfo-box">
+                        <span class="getInfo-btn">
+                            提取联系信息
+                        </span>
+                    </div>
+                </div>
+                <div class="info-list">
+                    <div class="info-title">
+                        <span>
+                            <input type="checkbox"/>
+                            <a href="" target="_blank">秘密（トップ･シークレット）～The Revelation～</a>
+                            <span class="translate-btn">翻译</span>
+                        </span>
+                    </div>
+                    <div class="info-intro">
+                        好讀第17年了。 有好讀真好，有你也真好。但不知遍及各地的你，
+                        究竟有多少。若你從未或很久沒贊助過好讀，請按這裡
+                    </div>
+                    <div class="info-url">
+                        <a href="#" target="_blank">http://www.vap.co.jp/top.secret/
+                        </a>
+                    </div>
+                    <div class="getInfo-box">
+                        <span class="getInfo-btn">
+                            提取联系信息
+                        </span>
+                    </div>
+                </div>
+                <div id="myPage"></div>
+            </div>
+            <div class="yys-banner">
+                <img src=img/arovane.png alt=""/>
+            </div>
+        </div>
+        <div class="yys-footer">
+            <ul>
+                <li>
+                    <a href="#">常见问题</a>
+                </li>
+                <li>
+                    <a href="#">软件证书</a>
+                </li>
+                <li>
+                    <a href="#">站长统计</a>
+                </li>
+            </ul>
+            <span>版权所有 © <a href="http://www.yingyanso.com" target="_blank">深圳市科飞时速网络技术有限公司</a>　<a href="http://www.miibeian.gov.cn/" target="_blank">粤ICP备10063542号</a></span>
+        </div>
+    </div>
+    <div class="client-info">
+        <div class="dialog-mask"></div>
+        <div class="">
+
+        </div>
+    </div>
+</body>
+</html>
