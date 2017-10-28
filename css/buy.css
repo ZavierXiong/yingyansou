@@ -1,0 +1,243 @@
+ul,
+p,
+input {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+a {
+  text-decoration: none;
+}
+h3 {
+  margin: 0;
+  padding: 0;
+}
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Microsoft YaHei", arial, sans-serif;
+}
+.main {
+  position: relative;
+  min-width: 800px;
+}
+.main .buy-header {
+  color: #2C2C2C;
+  text-align: center;
+  background-color: #3453a3;
+  padding: 20px 0 30px;
+}
+.main .buy-header .logo {
+  color: #fff;
+  font-size: 40px;
+}
+.main .buy-header ul {
+  width: 446px;
+  margin-top: 20px;
+  background-color: #fff;
+  display: inline-block;
+}
+.main .buy-header ul li {
+  font-size: 12px;
+  display: inline-block;
+  padding: 10px 20px;
+  width: 30%;
+  color: #555;
+}
+.main .buy-content {
+  text-align: center;
+  width: 740px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+.main .buy-content .vipNum {
+  text-align: center;
+}
+.main .buy-content .vipNum .vipNum-title {
+  font-size: 20px;
+  color: #3453a3;
+}
+.main .buy-content .vipNum .vipNum-box {
+  color: #3453a3;
+  font-size: 24px;
+  line-height: 39px;
+  margin-top: 15px;
+}
+.main .buy-content .vipNum .vipNum-box .user-num {
+  padding: 5px 10px;
+  background-color: #e2e6f1;
+  border-radius: 6px;
+  position: relative;
+}
+.main .buy-content .vipNum .vipNum-box .user-num:after {
+  content: "";
+  width: 28px;
+  display: inline-block;
+  border: 1px solid #e2e6f1;
+  position: absolute;
+  top: 50%;
+  left: 0;
+}
+.main .buy-content .vipPrice {
+  margin-top: 45px;
+}
+.main .buy-content .vipPrice ul {
+  margin-right: -28px;
+}
+.main .buy-content .vipPrice ul .infoBox {
+  padding: 10px 20px;
+  border: 1px solid #9cb7ff;
+  width: 30%;
+  float: left;
+  margin-right: 25px;
+  text-align: center;
+  cursor: pointer;
+}
+.main .buy-content .vipPrice ul .infoBox:hover {
+  box-shadow: 0px 0px 10px #709ff4;
+}
+.main .buy-content .vipPrice ul .infoBox > span h3 {
+  color: #5d8aff;
+  font-size: 20px;
+  font-weight: normal;
+}
+.main .buy-content .vipPrice ul .infoBox > span p {
+  color: #bac5fb;
+  font-size: 12px;
+}
+.main .buy-content .vipPrice ul .infoBox .vipInfo {
+  font-size: 12px;
+  width: 100%;
+}
+.main .buy-content .vipPrice ul .infoBox .vipInfo li {
+  margin-top: 5px;
+  padding: 5px 0;
+  line-height: 20px;
+  overflow: hidden;
+}
+.main .buy-content .vipPrice ul .infoBox .vipInfo li .vip-info-title {
+  float: left;
+}
+.main .buy-content .vipPrice ul .infoBox .vipInfo li .vip-info-ans {
+  float: right;
+}
+.main .buy-content .vipPrice ul .infoBox .myPrice {
+  color: #fe5d03;
+  font-size: 18px;
+  margin: 15px 0;
+  display: inline-block;
+}
+.main .buy-content .vipPrice .selected {
+  box-shadow: 0px 0px 10px #709ff4;
+}
+.main .buy-content .buyButton {
+  margin: 50px 0;
+  display: inline-block;
+  border: 1px solid #fe5d03;
+  width: 230px;
+  padding: 5px 0;
+  text-align: center;
+  border-radius: 40px;
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+  background-color: #ff6100;
+}
+.main .buy-content .buyButton:hover {
+  background: #e45607;
+}
+.main .buy-content .buyButton span {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+.main .buy-content .buyButton .arrow-right {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  vertical-align: middle;
+  background-size: contain;
+  background-image: url("../img/arrow-right.png");
+  background-repeat: no-repeat;
+}
+.main .buy-content .client-buyState {
+  height: 170px;
+  overflow: hidden;
+  border: 1px solid #9cb7ff;
+}
+.main .buy-content .client-buyState .info-box {
+  height: 114px;
+  overflow: hidden;
+  margin: 30px 20px;
+}
+.main .buy-content .client-buyState ul li {
+  font-size: 12px;
+  display: inline-block;
+  padding: 10px 0;
+  width: 32%;
+}
+.main .buy-content .vipService {
+  margin-top: 50px;
+  font-size: 12px;
+  overflow: hidden;
+}
+.main .buy-content .vipService .service-power {
+  display: inline-block;
+  float: left;
+}
+.main .buy-content .vipService .yys-tel {
+  margin-top: 25px;
+  display: block;
+  clear: both;
+  text-align: left;
+}
+.main .buy-content .vipService ul {
+  float: left;
+}
+.main .buy-content .vipService ul li {
+  display: inline-block;
+  margin-left: 30px;
+}
+.main .go {
+  display: inline-block;
+  width: 236px;
+  height: 171px;
+  position: absolute;
+  right: 0;
+  bottom: 62px;
+  background-image: url(../img/go.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.main .yys-footer {
+  clear: both;
+  font-size: 12px;
+  margin-top: 20px;
+  padding: 10px 0;
+  text-align: center;
+  width: 100%;
+  min-width: 1000px;
+  color: #fff;
+  background-color: #3453A3;
+}
+.main .yys-footer ul {
+  margin-bottom: 10px;
+}
+.main .yys-footer ul li {
+  display: inline-block;
+  margin-left: 70px;
+}
+.main .yys-footer ul li:first-child {
+  margin-left: 0;
+}
+.main .yys-footer a {
+  color: #fff;
+}
+.main .yys-footer a:hover {
+  text-decoration: underline;
+}
