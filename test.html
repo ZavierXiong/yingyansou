@@ -1,47 +1,21 @@
-<!DOCTYPE>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-    <title>向上下左右不间断无缝滚动效果(兼容火狐和IE)</title>
+    <meta charset="UTF-8">
+    <title>Document</title>
 </head>
+<script src="js/jquery-3.2.1.min.js"></script>
 <body>
-<div id="colee" style="overflow:hidden;height:253px;width:410px;">
-    <div id="colee1">
-        <p>此处放文字。。。。。。。。。</p>
-        <p>此处放文字。。。。。。。。。</p>
-        <p>此处放文字。。。。。。。。。</p>
-        <p>此处放文字。。。。。。。。。</p>
-        <p>此处放文字。。。。。。。。。</p>
-        <p>此处放文字。。。。。。。。。</p>
-        <p>此处放文字。。。。。。。。。</p>
-        <p>此处放文字。。。。。。。。。</p>
-        <p>此处放文字。。。。。。。。。</p>
-        <p>此处放文字。。。。。。。。。</p>
-        <p>此处放文字。。。。。。。。。</p>
-        <p>此处放文字。。。。。。。。。</p>
-    </div>
-    <div id="colee2"></div>
-</div>
-<script>
-    var speed=30;
-    var colee2=document.getElementById("colee2");
-    var colee1=document.getElementById("colee1");
-    var colee=document.getElementById("colee");
-    colee2.innerHTML=colee1.innerHTML; //克隆colee1为colee2
-    function Marquee1(){
-//当滚动至colee1与colee2交界时
-        if(colee2.offsetTop-colee.scrollTop<=0){
-            colee.scrollTop-=colee1.offsetHeight; //colee跳到最顶端
-        }else{
-            colee.scrollTop++
-        }
-    }
-    var MyMar1=setInterval(Marquee1,speed)//设置定时器
-    //鼠标移上时清除定时器达到滚动停止的目的
-    colee.onmouseover=function() {clearInterval(MyMar1)}
-    //鼠标移开时重设定时器
-    colee.onmouseout=function(){MyMar1=setInterval(Marquee1,speed)}
-</script>
-<!--向上滚动代码结束-->
+<form name="input" action="" method="get">
+    First name:
+    <input type="text" name="FirstName" value="Mickey" size="20">
+    <br />Last name:
+    <input type="text" name="LastName" value="Mouse" size="20">
+    <br />
+    <input type="submit" value="Submit">
+</form>
 </body>
+<script>
+    console.log("\u6377\u514b(\u6377\u514b\u8bed)")
+</script>
 </html>

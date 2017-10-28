@@ -18,8 +18,8 @@ body{
   font-family:"Microsoft YaHei", arial, sans-serif;
 }
 .main{
-  min-width:1000px;
-  min-height:550px;
+  overflow: hidden;
+  min-width:1280px;
   .header{
     width:100%;
     padding:10px 20px;
@@ -86,7 +86,7 @@ body{
             width:80px;
             position:absolute;
             top:53px;
-            left:0;
+            left: -13px;;
             background-color: #fff;
             border: 1px solid rgba(0, 0, 0, .15);
             border-radius: 4px;
@@ -99,7 +99,55 @@ body{
             }
           }
         }
+        .quit-box{
+          padding: 0 10px;
+          a{
+            color:#2c2c2c;
+            &:hover{
+              text-decoration: underline;
+            }
+          }
+          i{
+            display: inline-block;
+            vertical-align: middle;
+          }
+          span{
+            display: inline-block;
+            vertical-align: middle;
+            &:hover{
+              text-decoration: underline;
+            }
+          }
+        }
+        .user-info{
+          display: none;
+          margin-right:0;
+          img{
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            vertical-align: middle;
+            border-radius: 50%;
+            cursor:pointer;
+          }
+          .user-more{
+            width:84px;
+            margin-left:5px;
+            vertical-align: middle;
+            line-height: 16px;
+            display: inline-block;
+            .user-name{
+              cursor:pointer;
+              display: inline-block;
+              width: 100%;
+              text-overflow: ellipsis;
+              overflow: hidden;
+              white-space: nowrap;
+            }
+          }
+        }
         .sign-btn{
+          //display: none;
           a{
             font-size:14px;
             margin-left: 10px;
@@ -191,6 +239,8 @@ body{
     }
   }
   .yys-content{
+    display: block;
+    overflow: hidden;
     .yys-msg{
       width:100%;
       font-size:12px;
@@ -226,13 +276,21 @@ body{
               color:#444;
               .scroll-p{
                 display: inline-block;
-                width:30%;
+                width:33%;
                 line-height: 12px;
                 margin-right: 20px;
                 -ms-text-overflow: ellipsis;
                 text-overflow: ellipsis;
                 overflow: hidden;
                 white-space: nowrap;
+                .client-name{
+                  width:41px;
+                  display: inline-block;
+                  -ms-text-overflow: ellipsis;
+                  text-overflow: ellipsis;
+                  overflow: hidden;
+                  white-space: nowrap;
+                }
               }
             }
           }
@@ -244,6 +302,7 @@ body{
       }
     }
     .info-content{
+      //display: none;
       width: 50%;
       float: left;
       margin-left: 119px;
@@ -253,7 +312,7 @@ body{
         padding-bottom:25px;
         .info-title{
           font-size:14px;
-          a{
+          .infoLi-title{
             color:@blue;
             vertical-align: middle;
             &:hover{
@@ -270,12 +329,17 @@ body{
             cursor: pointer;
             border: 1px solid #f0ad4e;
             padding:2px 4px;
+            margin-left:5px;
             background-color:#f0ad4e;
             color:#fff;
             &:hover{
               background-color:#ec971f;
             }
+            a{
+              color:#fff;
+            }
           }
+
         }
         .info-intro{
           margin-top:10px;
@@ -299,7 +363,19 @@ body{
           &:hover{
             background-color:#4065c3;
           }
+          font{
+            color:#fff;
+          }
         }
+      }
+    }
+    .noData{
+      display: none;
+      font-size: 14px;
+      float: left;
+      color: #444;
+      i{
+        font-size:18px;
       }
     }
     .yys-banner{
@@ -307,15 +383,18 @@ body{
       float: right;
       text-align: center;
       margin-top:35px;
+      margin-bottom: 226px;
       img{
         width:80%;
       }
     }
   }
   #myPage{
-    margin-bottom:20px;
-    margin-top:30px;
+    margin-bottom: 20px;
+    margin-top: 30px;
     line-height: 35px;
+    float: left;
+    clear: both;
     li{
       list-style:none;
       display: inline-block;
@@ -338,6 +417,9 @@ body{
         border-color:#337ab7;
       }
     }
+    .disabled{
+      display: none;
+    }
     .prev{
       border-radius:4px 0 0px 4px;
     }
@@ -350,6 +432,7 @@ body{
   }
   .yys-footer{
     clear:both;
+    display: inline-block;
     font-size:12px;
     margin-top:20px;
     padding:10px 0;
@@ -376,3 +459,81 @@ body{
     }
   }
 }
+.dialog-mask{
+  //display: none;
+  position:fixed;
+  left:0;
+  top:0;
+  right:0;
+  bottom:0;
+  background:rgba(51, 51, 51,0.6);
+}
+.yys-loading{
+  display: none;
+  .dialog-mask{
+    background-color:#f6f9ff;
+    opacity: 0.3;
+  }
+  .loading-box{
+    position: fixed;
+    background-color: #fff;
+    left: 50%;
+    top: 50%;
+    padding: 30px 70px;
+    margin-top:-40px;
+    margin-left:-168px;
+    border-radius: 2px;
+    border: 1px solid #f2f2f2;
+    box-shadow: 0 0 5px #f3f3f3;
+    font-size:14px;
+    i{
+      display: inline-block;
+      animation: loading 2s infinite linear;
+    }
+  }
+}
+.backResult-layer{
+  display: none;
+  .backResult{
+  //display: none;
+  position:fixed;
+  left:50%;
+  top:50%;
+  padding: 10px 20px;
+  margin:-174px 0 0 -200px;
+  background-color:#fff;
+  z-index:9999;
+  width:400px;
+  text-align: center;
+  line-height:30px;
+  font-size:18px;
+  a{
+    color:#3453a3;
+    display: inline-block;
+    &:hover{
+      text-decoration: underline;
+    }
+  }
+  .red{
+    color:red;
+    display: inline-block;
+    width:100%;
+  }
+  .gray{
+    display: inline-block;
+    width:100%;
+    font-size:16px;
+    color:#999;
+  }
+  .fb{
+    font-size:12px;
+  }
+  .dy-code{
+    width:200px;
+    margin-bottom:-13px;
+  }
+}
+}
+
+
+

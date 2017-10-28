@@ -19,8 +19,8 @@ body {
   font-family: "Microsoft YaHei", arial, sans-serif;
 }
 .main {
-  min-width: 1000px;
-  min-height: 550px;
+  overflow: hidden;
+  min-width: 1280px;
 }
 .main .header {
   width: 100%;
@@ -90,7 +90,7 @@ body {
   width: 80px;
   position: absolute;
   top: 53px;
-  left: 0;
+  left: -13px;
   background-color: #fff;
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 4px;
@@ -101,6 +101,53 @@ body {
 }
 .main .header .product-menu .product-list .menu-li .more-li li a {
   color: #2c2c2c;
+}
+.main .header .product-menu .product-list .quit-box {
+  padding: 0 10px;
+}
+.main .header .product-menu .product-list .quit-box a {
+  color: #2c2c2c;
+}
+.main .header .product-menu .product-list .quit-box a:hover {
+  text-decoration: underline;
+}
+.main .header .product-menu .product-list .quit-box i {
+  display: inline-block;
+  vertical-align: middle;
+}
+.main .header .product-menu .product-list .quit-box span {
+  display: inline-block;
+  vertical-align: middle;
+}
+.main .header .product-menu .product-list .quit-box span:hover {
+  text-decoration: underline;
+}
+.main .header .product-menu .product-list .user-info {
+  display: none;
+  margin-right: 0;
+}
+.main .header .product-menu .product-list .user-info img {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  vertical-align: middle;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.main .header .product-menu .product-list .user-info .user-more {
+  width: 84px;
+  margin-left: 5px;
+  vertical-align: middle;
+  line-height: 16px;
+  display: inline-block;
+}
+.main .header .product-menu .product-list .user-info .user-more .user-name {
+  cursor: pointer;
+  display: inline-block;
+  width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 .main .header .product-menu .product-list .sign-btn a {
   font-size: 14px;
@@ -185,6 +232,10 @@ body {
   color: #003bb2;
   border-bottom: 1px solid #3453a3;
 }
+.main .yys-content {
+  display: block;
+  overflow: hidden;
+}
 .main .yys-content .yys-msg {
   width: 100%;
   font-size: 12px;
@@ -225,9 +276,17 @@ body {
 }
 .main .yys-content .yys-msg .info-scroll ul li a .scroll-p {
   display: inline-block;
-  width: 30%;
+  width: 33%;
   line-height: 12px;
   margin-right: 20px;
+  -ms-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.main .yys-content .yys-msg .info-scroll ul li a .scroll-p .client-name {
+  width: 41px;
+  display: inline-block;
   -ms-text-overflow: ellipsis;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -250,11 +309,11 @@ body {
 .main .yys-content .info-content .info-list .info-title {
   font-size: 14px;
 }
-.main .yys-content .info-content .info-list .info-title a {
+.main .yys-content .info-content .info-list .info-title .infoLi-title {
   color: #3453a3;
   vertical-align: middle;
 }
-.main .yys-content .info-content .info-list .info-title a:hover {
+.main .yys-content .info-content .info-list .info-title .infoLi-title:hover {
   text-decoration: underline;
 }
 .main .yys-content .info-content .info-list .info-title input {
@@ -267,11 +326,15 @@ body {
   cursor: pointer;
   border: 1px solid #f0ad4e;
   padding: 2px 4px;
+  margin-left: 5px;
   background-color: #f0ad4e;
   color: #fff;
 }
 .main .yys-content .info-content .info-list .info-title .translate-btn:hover {
   background-color: #ec971f;
+}
+.main .yys-content .info-content .info-list .info-title .translate-btn a {
+  color: #fff;
 }
 .main .yys-content .info-content .info-list .info-intro {
   margin-top: 10px;
@@ -296,11 +359,24 @@ body {
 .main .yys-content .info-content .info-list .getInfo-box:hover {
   background-color: #4065c3;
 }
+.main .yys-content .info-content .info-list .getInfo-box font {
+  color: #fff;
+}
+.main .yys-content .noData {
+  display: none;
+  font-size: 14px;
+  float: left;
+  color: #444;
+}
+.main .yys-content .noData i {
+  font-size: 18px;
+}
 .main .yys-content .yys-banner {
   width: 40%;
   float: right;
   text-align: center;
   margin-top: 35px;
+  margin-bottom: 226px;
 }
 .main .yys-content .yys-banner img {
   width: 80%;
@@ -309,6 +385,8 @@ body {
   margin-bottom: 20px;
   margin-top: 30px;
   line-height: 35px;
+  float: left;
+  clear: both;
 }
 .main #myPage li {
   list-style: none;
@@ -330,6 +408,9 @@ body {
   color: #fff;
   border-color: #337ab7;
 }
+.main #myPage .disabled {
+  display: none;
+}
 .main #myPage .prev {
   border-radius: 4px 0 0px 4px;
 }
@@ -342,6 +423,7 @@ body {
 }
 .main .yys-footer {
   clear: both;
+  display: inline-block;
   font-size: 12px;
   margin-top: 20px;
   padding: 10px 0;
@@ -366,4 +448,77 @@ body {
 }
 .main .yys-footer a:hover {
   text-decoration: underline;
+}
+.dialog-mask {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(51, 51, 51, 0.6);
+}
+.yys-loading {
+  display: none;
+}
+.yys-loading .dialog-mask {
+  background-color: #f6f9ff;
+  opacity: 0.3;
+}
+.yys-loading .loading-box {
+  position: fixed;
+  background-color: #fff;
+  left: 50%;
+  top: 50%;
+  padding: 30px 70px;
+  margin-top: -40px;
+  margin-left: -168px;
+  border-radius: 2px;
+  border: 1px solid #f2f2f2;
+  box-shadow: 0 0 5px #f3f3f3;
+  font-size: 14px;
+}
+.yys-loading .loading-box i {
+  display: inline-block;
+  animation: loading 2s infinite linear;
+}
+.backResult-layer {
+  display: none;
+}
+.backResult-layer .backResult {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  padding: 10px 20px;
+  margin: -174px 0 0 -200px;
+  background-color: #fff;
+  z-index: 9999;
+  width: 400px;
+  text-align: center;
+  line-height: 30px;
+  font-size: 18px;
+}
+.backResult-layer .backResult a {
+  color: #3453a3;
+  display: inline-block;
+}
+.backResult-layer .backResult a:hover {
+  text-decoration: underline;
+}
+.backResult-layer .backResult .red {
+  color: red;
+  display: inline-block;
+  width: 100%;
+}
+.backResult-layer .backResult .gray {
+  display: inline-block;
+  width: 100%;
+  font-size: 16px;
+  color: #999;
+}
+.backResult-layer .backResult .fb {
+  font-size: 12px;
+}
+.backResult-layer .backResult .dy-code {
+  width: 200px;
+  margin-bottom: -13px;
 }
