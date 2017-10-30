@@ -473,6 +473,9 @@
   font-size: 14px;
   cursor: pointer;
 }
+.loading-layer .loading-content .close-load:hover {
+  color: #666;
+}
 .loading-layer .loading-content .loading-header {
   background-color: #3453a3;
   height: 50px;
@@ -494,6 +497,10 @@
   width: 100%;
   color: #159c12;
   display: inline-block;
+  word-break: break-all;
+}
+.loading-layer .loading-content .loading-info .c-title {
+  color: #333;
 }
 .loading-layer .loading-content .loading-info .yys-warn {
   padding-top: 20px;
@@ -588,11 +595,14 @@
 }
 .client-info .yys-infomation .close-btn {
   position: absolute;
-  right: 5px;
-  top: 5px;
+  right: 10px;
+  top: 10px;
   color: #999;
   font-size: 14px;
   cursor: pointer;
+}
+.client-info .yys-infomation .close-btn:hover {
+  color: #666;
 }
 .client-info .yys-infomation .info-header {
   overflow: hidden;
@@ -719,16 +729,36 @@
   color: #3453a3;
   text-decoration: underline;
 }
-.client-info .yys-infomation .info-content-box .more-info .cnt2 table .info-vertify,
-.client-info .yys-infomation .info-content-box .more-info .cnt2 table .info-contact {
+.client-info .yys-infomation .info-content-box .more-info .cnt2 table .info-vertify {
   cursor: pointer;
   color: #3453a3;
 }
-.client-info .yys-infomation .info-content-box .more-info .cnt2 table .info-vertify:hover,
-.client-info .yys-infomation .info-content-box .more-info .cnt2 table .info-contact:hover {
+.client-info .yys-infomation .info-content-box .more-info .cnt2 table .info-vertify:hover {
   background: #3453a3;
   color: #fff;
   border-radius: 2px;
+}
+.client-info .yys-infomation .info-content-box .more-info .cnt2 table .info-contact {
+  color: #999;
+  cursor: not-allowed;
+}
+.client-info .yys-infomation .info-content-box .more-info .cnt2 .noData-table {
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+  color: #999;
+}
+.client-info .yys-infomation .info-content-box .more-info .cnt2 .noData-table i {
+  display: inline-block;
+  width: 100%;
+  font-size: 40px;
+  margin-top: 20px;
+}
+.client-info .yys-infomation .info-content-box .more-info .cnt2 .noData-table span {
+  font-size: 20px;
+  margin-top: 10px;
+  display: inline-block;
+  width: 100%;
 }
 .client-info .yys-infomation .info-content-box .more-info .cnt3 {
   padding: 25px;
@@ -785,4 +815,5 @@
 .search-input .placeholder {
   left: 15px;
   top: 0;
+  z-index: -1;
 }

@@ -132,7 +132,6 @@ body {
   height: 30px;
   vertical-align: middle;
   border-radius: 50%;
-  cursor: pointer;
 }
 .main .header .product-menu .product-list .user-info .user-more {
   width: 84px;
@@ -142,7 +141,6 @@ body {
   display: inline-block;
 }
 .main .header .product-menu .product-list .user-info .user-more .user-name {
-  cursor: pointer;
   display: inline-block;
   width: 100%;
   text-overflow: ellipsis;
@@ -210,7 +208,7 @@ body {
   -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
 }
-.main .yys-tips .tip-li .dropdown-menu li a {
+.main .yys-tips .tip-li .dropdown-menu li {
   display: block;
   padding: 3px 20px;
   clear: both;
@@ -219,7 +217,7 @@ body {
   color: #333;
   white-space: nowrap;
 }
-.main .yys-tips .tip-li .dropdown-menu li a:hover {
+.main .yys-tips .tip-li .dropdown-menu li:hover {
   color: #262626;
   text-decoration: none;
   background-color: #f5f5f5;
@@ -343,8 +341,14 @@ body {
 }
 .main .yys-content .info-content .info-list .info-url {
   margin: 10px 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .main .yys-content .info-content .info-list .info-url a {
+  color: #419641;
+}
+.main .yys-content .info-content .info-list .info-url a font {
   color: #419641;
 }
 .main .yys-content .info-content .info-list .getInfo-box {
@@ -458,6 +462,8 @@ body {
   background: rgba(51, 51, 51, 0.6);
 }
 .yys-loading {
+  position: fixed;
+  z-index: 9999;
   display: none;
 }
 .yys-loading .dialog-mask {

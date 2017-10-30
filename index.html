@@ -58,11 +58,11 @@
                             <span>正在为您实时抓取数据 , 预计耗时5秒-2分钟 , 请稍后...</span>
                         </div>
                         <div class="loading-info">
-                            <span class="green">客户网址为 : http://www.jkllamps.com/basedled</span>
-                <span class="loading-time">
-                    <i class="icon iconfont icon-loading-m myloading"></i>
-                    <span>正在努力抓取中,当前耗时 : <span class="red time"><span class="time-minute">00</span> : <span class="time-second">00</span></span></span>
-                </span>
+                            <span class="green"><span class="c-title">客户网址为 : </span><span id="clientUrl"></span></span>
+                            <span class="loading-time">
+                                <i class="icon iconfont icon-loading-m myloading"></i>
+                                <span class="c-title">正在努力抓取中,当前耗时 : <span class="red time"><span class="time-minute">00</span> : <span class="time-second">00</span></span></span>
+                            </span>
                             <div class="green yys-warn">
                                 <span>亲 , 正在提取的网址网速较慢,请耐心等待哦 ^_^</span>
                             </div>
@@ -116,15 +116,15 @@
             <i class="icon iconfont icon-cha close-btn"></i>
             <div class="info-header">
                 <span class="logo">鹰眼搜</span>
-                <div class="user-info-box">
-                    <div class="user-info">
-                        <div class="user-name">
-                            <span>led.ltd</span>
-                            <span>www.baidu.com</span>
-                        </div>
-                        <img src="img/bd_logo1.png" class="user-img" alt="用户头像"/>
-                    </div>
-                </div>
+                <!--<div class="user-info-box">-->
+                <!--<div class="user-info">-->
+                <!--<div class="user-name">-->
+                <!--<span>led.ltd</span>-->
+                <!--<span>www.baidu.com</span>-->
+                <!--</div>-->
+                <!--<img src="img/bd_logo1.png" class="user-img" alt="用户头像"/>-->
+                <!--</div>-->
+                <!--</div>-->
             </div>
             <div class="info-content-box">
                 <div class="left-nav">
@@ -142,25 +142,25 @@
                             <li>
                                 <div>
                                     <span>企业全称：</span>
-                                    <span>深圳鹰眼搜有限公司</span>
+                                    <span id="company_name"></span>
                                 </div>
                             </li>
                             <li>
                                 <div>
                                     <span>所在国家：</span>
-                                    <span>中国</span>
+                                    <span id="location_country"></span>
                                 </div>
                             </li>
                             <li>
                                 <div>
                                     <span>联系电话：</span>
-                                    <span>18177852636</span>
+                                    <span id="contact_phone"></span>
                                 </div>
                             </li>
                             <li>
                                 <div>
                                     <span>搜索日期：</span>
-                                    <span>2017-10-16</span>
+                                    <span id="doTime"></span>
                                 </div>
                             </li>
                         </ul>
@@ -168,56 +168,60 @@
                     <div class="info-cnt cnt2">
                         <table width="100%" cellpadding="0" cellspacing="0" border="0">
                             <thead>
-                            <th>邮箱地址</th>
+                            <th class="email-th">邮箱地址</th>
                             <th>一键验证</th>
                             <th>发邮件</th>
                             </thead>
                             <tbody class="emailBody">
-                            <tr>
-                                <td><a href="#" class="info-email">lsz@yiwaixiao.com</a></td>
-                                <td><a href="#" class="info-vertify">验证</a></td>
-                                <td><a href="#" class="info-contact">立刻联系</a></td>
-                            </tr>
+                            <!--<tr>-->
+                            <!--<td><a href="#" class="info-email">lsz@yiwaixiao.com</a></td>-->
+                            <!--<td><a href="#" class="info-vertify">验证</a></td>-->
+                            <!--<td><a href="#" class="info-contact">立刻联系</a></td>-->
+                            <!--</tr>-->
                             </tbody>
                         </table>
-                        <a href="buy.html" class="SSVip-warn">您的搜邮箱数已超出，以下还有<span id="lostNum"></span>个邮箱，升级账号查看更多...</a>
+                        <div class="noData-table">
+                            <i class="icon iconfont icon-zanwushuju"></i>
+                            <span>暂无数据</span>
+                        </div>
+                        <!--<a href="buy.html" class="SSVip-warn">您的搜邮箱数已超出，以下还有<span id="lostNum"></span>个邮箱，升级账号查看更多...</a>-->
                     </div>
                     <div class="info-cnt cnt3">
                         <ul>
                             <li>
                                 <div>
                                     <span class="social-title">Facebook：</span>
-                                    <span>https://twitter.com/BrillianceLED</span>
+                                    <span id="Facebook"></span>
                                 </div>
                             </li>
                             <li>
                                 <div>
                                     <span class="social-title">Linkedin：</span>
-                                    <span>https://twitter.com/BrillianceLED</span>
+                                    <span id="Linkedin"></span>
                                 </div>
                             </li>
                             <li>
                                 <div>
                                     <span class="social-title">Twitter：</span>
-                                    <span>https://twitter.com/BrillianceLED</span>
+                                    <span id="Twitter"></span>
                                 </div>
                             </li>
                             <li>
                                 <div>
                                     <span class="social-title">Google：</span>
-                                    <span>https://twitter.com/BrillianceLED</span>
+                                    <span id="Google"></span>
                                 </div>
                             </li>
                             <li>
                                 <div>
                                     <span class="social-title">Youtobe：</span>
-                                    <span>https://twitter.com/BrillianceLED</span>
+                                    <span id="Youtobe"></span>
                                 </div>
                             </li>
                             <li>
                                 <div>
                                     <span class="social-title">Pintertst：</span>
-                                    <span>https://twitter.com/BrillianceLED</span>
+                                    <span id="Pintertst"></span>
                                 </div>
                             </li>
                         </ul>

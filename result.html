@@ -300,7 +300,13 @@
                 <div class="noData">
                     <i class="icon iconfont icon-cry"></i> 亲，当前关健词已无最新客户数据，请更换区域或关健词获取更多信息!
                 </div>
-                <div id="myPage"></div>
+                <div id="myPage">
+                    <ul>
+                        <li class="prevPage">上一页</li>
+                        <li class="page">1</li>
+                        <li class="nextPage">下一页</li>
+                    </ul>
+                </div>
             </div>
             <div class="yys-banner">
                 <img src=img/arovane.png alt=""/>
@@ -329,15 +335,15 @@
             <i class="icon iconfont icon-cha close-btn"></i>
             <div class="info-header">
                 <span class="logo">鹰眼搜</span>
-                <div class="user-info-box">
-                    <div class="user-info">
-                        <div class="user-name">
-                            <span>led.ltd</span>
-                            <span>www.baidu.com</span>
-                        </div>
-                        <img src="img/bd_logo1.png" class="user-img" alt="用户头像"/>
-                    </div>
-                </div>
+                <!--<div class="user-info-box">-->
+                    <!--<div class="user-info">-->
+                        <!--<div class="user-name">-->
+                            <!--<span>led.ltd</span>-->
+                            <!--<span>www.baidu.com</span>-->
+                        <!--</div>-->
+                        <!--<img src="img/bd_logo1.png" class="user-img" alt="用户头像"/>-->
+                    <!--</div>-->
+                <!--</div>-->
             </div>
             <div class="info-content-box">
                 <div class="left-nav">
@@ -393,7 +399,11 @@
                             <!--</tr>-->
                             </tbody>
                         </table>
-                        <a href="buy.html" class="SSVip-warn">您的搜邮箱数已超出，以下还有<span id="lostNum"></span>个邮箱，升级账号查看更多...</a>
+                        <div class="noData-table">
+                            <i class="icon iconfont icon-zanwushuju"></i>
+                            <span>暂无数据</span>
+                        </div>
+                        <!--<a href="buy.html" class="SSVip-warn">您的搜邮箱数已超出，以下还有<span id="lostNum"></span>个邮箱，升级账号查看更多...</a>-->
                     </div>
                     <div class="info-cnt cnt3">
                         <ul>
@@ -505,10 +515,10 @@
                 <span>正在为您实时抓取数据 , 预计耗时5秒-2分钟 , 请稍后...</span>
             </div>
             <div class="loading-info">
-                <span class="green">客户网址为 : http://www.jkllamps.com/basedled</span>
+                <span class="green" ><span class="c-title">客户网址为 : </span><span id="clientUrl"></span></span>
                 <span class="loading-time">
                     <i class="icon iconfont icon-loading-m myloading"></i>
-                    <span>正在努力抓取中,当前耗时 : <span class="red time"><span class="time-minute">00</span> : <span class="time-second">00</span></span></span>
+                    <span class="c-title">正在努力抓取中,当前耗时 : <span class="red time"><span class="time-minute">00</span> : <span class="time-second">00</span></span></span>
                 </span>
                 <div class="green yys-warn">
                     <span>亲 , 正在提取的网址网速较慢,请耐心等待哦 ^_^</span>
@@ -540,54 +550,131 @@
                     <span></span>
                 </div>
             </div>
-            <div class="tab-title">
-                <span class="log-in-title">登录</span>
-                <span class="sign-in-title">注册</span>
-                <i class="icon iconfont icon-cha close" id="close-sign"></i>
+
+            <div class="register-tab">
+                <div class="tab-title">
+                    <span class="log-in-title">登录</span>
+                    <span class="sign-in-title">注册</span>
+                    <i class="icon iconfont icon-cha close" id="close-sign"></i>
+                </div>
+                <div class="import-table">
+                    <div class="log-in-box">
+                        <div class="import-frame user-name">
+                            <i class="icon iconfont icon-yonghu"></i>
+                            <!--<input type="text" onkeypress="return event.keyCode>=48&&event.keyCode<=57" placeholder="输入手机号" id="user-tel"/>-->
+                            <input type="text" placeholder="输入手机号" id="user-tel"/>
+                            <span class="red user-warn">请输入正确的手机号！</span>
+                        </div>
+                        <div class="import-frame password">
+                            <i class="icon iconfont icon-mima"></i>
+                            <input type="password" placeholder="输入密码" id="user-key"/>
+                            <span class="red password-warn">请输入6-20位密码！</span>
+                        </div>
+                        <div class="log-in-btn">
+                            登录
+                        </div>
+                        <a href="javascript:void(0);" class="p_forget">忘记密码？</a>
+                        <div class="sign-in-footer">
+                            外贸找客户，就上鹰眼搜
+                        </div>
+                    </div>
+                    <div class="sign-in-box">
+                        <div class="import-frame user-name">
+                            <i class="icon iconfont icon-yonghu"></i>
+                            <!--<input type="text" onkeypress="return event.keyCode>=48&&event.keyCode<=57" placeholder="输入手机号" id="user-tel"/>-->
+                            <input type="text" placeholder="输入手机号" id="sign-user-tel"/>
+                            <span class="red user-warn">请输入正确的手机号！</span>
+                        </div>
+                        <div class="import-frame password">
+                            <i class="icon iconfont icon-mima"></i>
+                            <input type="password" placeholder="输入密码" id="sign-user-key"/>
+                            <span class="red password-warn">请输入6-20位密码！</span>
+                        </div>
+                        <div class="code-box">
+                            <div class="import-frame mycode">
+                                <i class="icon iconfont icon-yanzhengma"></i>
+                                <input type="text" placeholder="输入验证码" id="codeVal"/>
+                                <span class="red code-warn">请输入正确的验证码！</span>
+                            </div>
+                            <span class="code-btn" id="code">获取验证码</span>
+                            <span class="disable-btn" id="disable-code"><span class="code-date" id="code-date">60</span>秒后重发</span>
+                        </div>
+                        <div class="sign-in-btn">
+                            注册
+                        </div>
+                        <div class="sign-in-footer">
+                            外贸找客户，就上鹰眼搜
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="import-table">
-                <div class="log-in-box">
-                    <div class="import-frame user-name">
-                        <i class="icon iconfont icon-yonghu"></i>
-                        <!--<input type="text" onkeypress="return event.keyCode>=48&&event.keyCode<=57" placeholder="输入手机号" id="user-tel"/>-->
-                        <input type="text" placeholder="输入手机号" id="user-tel"/>
-                        <span class="red user-warn">请输入正确的手机号！</span>
+            <div class="reg-forg-box">
+                <div class="reg-forg reg0">
+                    <div class="title">
+                        <h3>找回密码<i class="icon iconfont icon-cha fClose" ></i></h3>
                     </div>
-                    <div class="import-frame password">
-                        <i class="icon iconfont icon-mima"></i>
-                        <input type="password" placeholder="输入密码" id="user-key"/>
-                        <span class="red password-warn">请输入6-20位密码！</span>
+                    <div class="reg-cont">
+                        <div class="reg-input r0">
+                            <i class="icon iconfont icon-yonghu"></i>
+                            <input type="text" placeholder="请输入您注册的手机号" id="f-userTel"/>
+                            <span class="red f-telWarn">请输入正确的手机号！</span>
+                        </div>
+                        <div class="reg-code">
+                            <div class="reg-input f-code">
+                                <i class="icon iconfont icon-yanzhengma"></i>
+                                <input type="text" placeholder="输入验证码" id="f-codeVal"/>
+                                <span class="red f-code-warn">请输入正确的验证码！</span>
+                            </div>
+                            <span class="code-btn" id="get_code">获取验证码</span>
+                            <span class="disable-btn" id="f-disable-code"><span class="code-date" id="f-code-date">60</span>秒后重发</span>
+                        </div>
+                        <div class="back-log">
+                            <span id="free-reg">免费注册</span>
+                            |
+                            <span id="to-log">返回登录</span></div>
                     </div>
-                    <div class="log-in-btn">
-                        登录
+                    <div class="reg-btn" id="reg-btn1">
+                        下一步
                     </div>
                     <div class="sign-in-footer">
                         外贸找客户，就上鹰眼搜
                     </div>
                 </div>
-                <div class="sign-in-box">
-                    <div class="import-frame user-name">
-                        <i class="icon iconfont icon-yonghu"></i>
-                        <!--<input type="text" onkeypress="return event.keyCode>=48&&event.keyCode<=57" placeholder="输入手机号" id="user-tel"/>-->
-                        <input type="text" placeholder="输入手机号" id="sign-user-tel"/>
-                        <span class="red user-warn">请输入正确的手机号！</span>
+                <div class="reg-forg reg1">
+                    <div class="title">
+                        <h3>重置密码<i class="icon iconfont icon-cha fClose" ></i></h3>
                     </div>
-                    <div class="import-frame password">
-                        <i class="icon iconfont icon-mima"></i>
-                        <input type="password" placeholder="输入密码" id="sign-user-key"/>
-                        <span class="red password-warn">请输入6-20位密码！</span>
-                    </div>
-                    <div class="code-box">
-                        <div class="import-frame mycode">
-                            <i class="icon iconfont icon-yanzhengma"></i>
-                            <input type="text" placeholder="输入验证码" id="codeVal"/>
-                            <span class="red code-warn">请输入正确的验证码！</span>
+                    <div class="reg-cont">
+                        <div class="reg-input r1">
+                            <i class="icon iconfont icon-mima"></i>
+                            <input type="password" placeholder="请输入新密码！" id="f-sign-user-key"/>
+                            <span class="red f-password-warn">请输入6-20位密码！</span>
                         </div>
-                        <span class="code-btn" id="code">获取验证码</span>
-                        <span class="disable-btn" id="disable-code"><span id="code-date"></span>秒后重发</span>
+                        <div class="reg-input">
+                            <i class="icon iconfont icon-mima"></i>
+                            <input type="password" placeholder="请再次确认您的新密码" id="f-sign-user-key2"/>
+                            <span class="red f-password-warn">两次输入的密码不一致！</span>
+                        </div>
                     </div>
-                    <div class="sign-in-btn">
-                        注册
+                    <div class="reg-btn" id="reg-btn2">
+                        立即修改
+                    </div>
+                    <div class="sign-in-footer">
+                        外贸找客户，就上鹰眼搜
+                    </div>
+                </div>
+                <div class="reg-forg reg2">
+                    <div class="title">
+                        <h3>操作提示<i class="icon iconfont icon-cha fClose" ></i></h3>
+                    </div>
+                    <div class="reg-cont">
+                        <div class="success-warn">
+                            <i class="icon iconfont icon-zhengque1"></i>
+                            <span>恭喜你！密码重置成功！</span>
+                        </div>
+                    </div>
+                    <div class="reg-btn" id="reg-btn3">
+                        立即登录
                     </div>
                     <div class="sign-in-footer">
                         外贸找客户，就上鹰眼搜

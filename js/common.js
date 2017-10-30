@@ -4,10 +4,12 @@
 var url = "http://115.29.230.132:86";
 var serviceType;//验证码方式(注册、登录、找回密码)
 $(function(){
+    $.ajaxSetup({crossDomain: true, xhrFields: {withCredentials: true}});//设置跨域
+    jQuery.support.cors = true;//ie9以下加配置浏览器安全可以进行跨域
     $.ajax({
         type:"get",
         url:url+"/yys/autoLogin",
-        xhrFields: { withCredentials: true },
+        //xhrFields: { withCredentials: true },
         success:function(data){
             if(data.code===200){
                 $('.sign-btn').hide();
@@ -80,7 +82,7 @@ $(function(){
             $(sign).addClass('selected');
             $(log).removeClass('selected');
         }
-            //点击右上角登录注册
+        //点击右上角登录注册
         function MyRegist(myId,myTitle1,myTitle2,myHide,myShow){
             $(document).on('click',myId,function(){
                 serviceType = 1;
@@ -248,7 +250,7 @@ $(function(){
             if(val.length==11&&(/^1[3|4|5|8][0-9]\d{4,8}$/.test(val))&&codeVal!=""){
                 $.ajax({
                     type:"get",
-                    xhrFields: { withCredentials: true },
+                    //xhrFields: { withCredentials: true },
                     url:url+"/yys/code/check",
                     data:{
                         "mobile":val,
@@ -278,7 +280,7 @@ $(function(){
             if(val.length>5&&val2===val){
                 $.ajax({
                     type:"post",
-                    xhrFields: { withCredentials: true },
+                    //xhrFields: { withCredentials: true },
                     url:url+"/yys/modifyPassword",
                     data:{
                         "mobile":tel,
@@ -307,10 +309,10 @@ $(function(){
             if ($('#user-tel').val().length===11 && (/^1[3|4|5|8][0-9]\d{4,8}$/.test($('#user-tel').val())) && $('#user-key').val().length>=6 && $('#user-key').val().length<=20) {
                 $('.loading').show();//出现加载界面
                 $.ajax({
-                	type:'post',
-                	url:url+'/yys/login',
-                    xhrFields: { withCredentials: true },
-                	data:{"account":account,"password":password},
+                    type:'post',
+                    url:url+'/yys/login',
+                    //xhrFields: { withCredentials: true },
+                    data:{"account":account,"password":password},
                     success:function(data){
                         $('.loading').hide();
                         if(data.code ===200){
@@ -353,7 +355,7 @@ $(function(){
                 $.ajax({
                     type:'post',
                     url:url+'/yys/register',
-                    xhrFields: { withCredentials: true },
+                    //xhrFields: { withCredentials: true },
                     data:{
                         "account":account,
                         "registerValue":registerValue+'###no',
@@ -382,7 +384,7 @@ $(function(){
                     $.ajax({
                         type:'get',
                         url:url+'/yys/code/get?mobile='+mobile.val()+'&'+'serviceType='+serviceType,
-                        xhrFields: { withCredentials: true },
+                        //xhrFields: { withCredentials: true },
                         success:function(data){
                             if(data.code ===200){
                                 restCode();
@@ -464,7 +466,12 @@ $(function(){
         });
     };
     InfoTab();
-})
+});
+
+//时间戳转换成日期
+function getLocalTime(nS) {
+    return new Date(parseInt(nS)).toLocaleString().replace(/:\d{1,2}$/,' ');
+}
 //等待页面时间
 var second = "00";
 var minute = "00";
@@ -493,6 +500,7 @@ function timeAdd(){
 
 //关闭等待页面
 function closeLoad(){
+    $('.yys-warn').hide();
     $('.loading-layer').hide();
     window.clearInterval(myTime);//停止等待时间定时器
     second = "00";
@@ -503,6 +511,7 @@ function closeLoad(){
 
 //点击等待时间关闭按钮
 $(document).on("click",".close-load",function(){
+    xhr_Link.abort();//终止提取信息的http请求
     closeLoad();
 })
 function placeholderSupport() {
