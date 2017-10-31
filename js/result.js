@@ -9,15 +9,16 @@ $(function(){
     $.ajaxSetup({crossDomain: true, xhrFields: {withCredentials: true}});
     jQuery.support.cors = true;
     var localTime = "";
+    var loc = window.name;
     function loadSearch(){
-        var loc = location.href;
+        //var loc = location.href;
         var n1 = loc.indexOf('=');
         var pos = new Array();
         var n2 = loc.lastIndexOf('=');
         pos.push(n1);
         while(n1<n2){
             n1 = loc.indexOf('=',n1+1);
-            pos.push(n1)
+            pos.push(n1);
         }
         var s1 = loc.indexOf('&searchWord');
         var s2 = loc.indexOf('&country');
@@ -29,7 +30,7 @@ $(function(){
             search();
         }
     }
-    loadSearch();//从地址栏拿主页传来的数据
+    loadSearch();//从window.name拿主页传来的数据或者刷新的时候实时更新数据
     function countryCheck(myCountry,id){
         var myCountry = countryJson[myCountry];
         var list = "";
@@ -193,27 +194,10 @@ $(function(){
             }
         }
     });
-    //鹰眼搜信息弹框tab切换
-    //(function(){
-    //    var li = $('#left-nav>li');
-    //    var content = $('.info-cnt');
-    //    for(var i = 0,max=li.length;i<max;i++){
-    //        (function(i){
-    //            li[i].addEventListener('click',function(){
-    //                li.removeClass('info-active');
-    //                $(this).addClass('info-active');
-    //                content.hide().eq(li.index(this)).show();
-    //            });
-    //        })(i);
-    //    }
-    //    $('.close-btn').on('click',function(){
-    //        $('.client-info').fadeOut();
-    //    });
-    //})();
     //提取联系信息
     $(document).on('click','.getInfo-box',function(){
+        searchType = 4;
         var companyId = $(this).attr('data-id');
-        //clearInterval(myTime);
         second = "00";
         minute = "00";
         myTime=setInterval("timeAdd()",1000);
@@ -221,97 +205,33 @@ $(function(){
         $('#clientUrl').html(weburl);
         xhr_Link = $.ajax({
             type:"post",
-            url:url+"/yys/extract",
-            //xhrFields: { withCredentials: true },
+            url:url+"/yys/search",
             data:{
-                "companyId":companyId
+                "searchType":searchType,
+                "searchWord":companyId
             },
             success:function(data){
                 closeLoad();
-                if(data.code===200){
-                    $('.emailBody').html('');
-                    var myEmail = data.data.emails;//所有邮箱
-                    var companyName = data.data.company_name===null?"未知":data.data.company_name;
-                    var location_country = data.data.location_country===null?"未知":data.data.location_country;
-                    var contact_phone = data.data.contact_phone===""?"无":data.data.contact_phone;
-                    var Facebook = data.data.facebook===""?"未知":data.data.facebook;
-                    var Linkedin = data.data.linkedin===""?"未知":data.data.linkedin;
-                    var Twitter = data.data.twitter===""?"未知":data.data.twitter;
-                    var Google = data.data.google===null?"未知":data.data.google;
-                    var Youtobe = data.data.youtube===""?"未知":data.data.youtube;
-                    var Pintertst = data.data.pintertst===""?"未知":data.data.pintertst;
-                    var doTime  = data.data.doTime;
-                    var searchDate = getLocalTime(doTime[doTime.length-1]);
-                    var emailT = "";
-                    for(var i= 0,max=myEmail.length;i<max;i++){
-                        var emailUrl = myEmail[i].email;
-                        if(max>0){
-                            var emailTr = '<tr><td><a href="'+emailUrl+'" class="info-email">'+emailUrl+'</a></td><td><a href="javascript:void(0);" class="info-vertify">验证</a></td><td><a href="javascript:void(0);" default="default" class="info-contact">立刻联系</a></td></tr>'
-                            emailT+=emailTr;
-                            $('.emailBody').show();
-                            $('.noData-table').hide();
-                        }else{
-                            $('.emailBody').hide();
-                            $('.noData-table').show();
+                switch(data.code){
+                    case 200:
+                        InfoLayer(data);
+                    break;
+                    case 103:
+                        alert(data.msg);
+                        InfoLayer(data);
+                    break;
+                    case 105:
+                        var buyEmail = confirm(data.msg+'。是否升级账号？');
+                        if(buyEmail){
+                            location.href = "buy.html";
                         }
-                    }
-                    $('.emailBody').html(emailT);
-                    $('#company_name').html(companyName);
-                    $('#location_country').html(location_country);
-                    $('#contact_phone').html(contact_phone);
-                    $('#doTime').html(searchDate);
-                    $('#Facebook').html(Facebook);
-                    $('#Linkedin').html(Linkedin);
-                    $('#Twitter').html(Twitter);
-                    $('#Google').html(Google);
-                    $('#Youtobe').html(Youtobe);
-                    $('#Pintertst').html(Pintertst);
-                    $('.client-info').fadeIn();
-                }else if(data.code ===105){
-                    var buyEmail = confirm(data.msg+'。是否升级账号？');
-                    if(buyEmail){
-                        location.href = "result.html";
-                    }
-                }else if(data.code === 103){
-                    alert(data.msg);
-                    $('.emailBody').html('');
-                    var myEmail = data.data.emails;//所有邮箱
-                    var companyName = data.data.company_name===null?"未知":data.data.company_name;
-                    var location_country = data.data.location_country===null?"未知":data.data.location_country;
-                    var contact_phone = data.data.contact_phone===""?"无":data.data.contact_phone;
-                    var Facebook = data.data.facebook===""?"未知":data.data.facebook;
-                    var Linkedin = data.data.linkedin===""?"未知":data.data.linkedin;
-                    var Twitter = data.data.twitter===""?"未知":data.data.twitter;
-                    var Google = data.data.google===null?"未知":data.data.google;
-                    var Youtobe = data.data.youtube===""?"未知":data.data.youtube;
-                    var Pintertst = data.data.pintertst===""?"未知":data.data.pintertst;
-                    var doTime  = data.data.doTime;
-                    var searchDate = getLocalTime(doTime[doTime.length-1]);
-                    var emailT = "";
-                    for(var i= 0,max=myEmail.length;i<max;i++){
-                        var emailUrl = myEmail[i].email;
-                        if(max>0){
-                            var emailTr = '<tr><td><a href="'+emailUrl+'" class="info-email">'+emailUrl+'</a></td><td><a href="javascript:void(0);" class="info-vertify">验证</a></td><td><a href="javascript:void(0);" default="default" class="info-contact">立刻联系</a></td></tr>'
-                            emailT+=emailTr;
-                            $('.emailBody').show();
-                            $('.noData-table').hide();
-                        }else{
-                            $('.emailBody').hide();
-                            $('.noData-table').show();
-                        }
-                    }
-                    $('.emailBody').html(emailT);
-                    $('#company_name').html(companyName);
-                    $('#location_country').html(location_country);
-                    $('#contact_phone').html(contact_phone);
-                    $('#doTime').html(searchDate);
-                    $('#Facebook').html(Facebook);
-                    $('#Linkedin').html(Linkedin);
-                    $('#Twitter').html(Twitter);
-                    $('#Google').html(Google);
-                    $('#Youtobe').html(Youtobe);
-                    $('#Pintertst').html(Pintertst);
-                    $('.client-info').fadeIn();
+                    break;
+                    case 107:
+                        alert("亲，操作太快了哦~")
+                    break;
+                    default:
+                        alert(data.msg);
+                    break;
                 }
             }
         });
@@ -350,52 +270,47 @@ $(function(){
             }
         })
     })
-    //搜索触发的事件
+
+    function WarnLoading(){
+        var dT=6;
+        var dtInterval = setInterval(function(){
+            dT--;
+            if(dT<0){
+                $('.backResult-layer').hide();
+                $('.yys-loading').show();
+                var reloadTime = setTimeout(function(){
+                    $('.yys-loading').hide();
+                    search();
+                    clearTimeout(reloadTime);
+                },1000)
+                clearInterval(dtInterval);
+                dT = 6;
+            }
+            $('#yyedtime').text(dT);
+        },1000);
+        $('.backResult-layer').fadeIn();
+        $(document).on('click','.backResult a',function(){
+            $('.backResult-layer').hide();
+            window.clearInterval(dtInterval);
+            $('#yyedtime').text('6');//初始化返回页面的倒数总时间
+        })
+    };//点击过快弹出框
+
+    //搜索
     function search(){
         searchType = 1;
         searchTime = new Date();
         searchWord = $('#searchInput').val().replace(/^(\s|\u00A0)+/,'').replace(/(\s|\u00A0)+$/,'');
+        window.name="searchType="+searchType+"&"+"searchWord="+searchWord+"&"+"country="+country;//每次搜索后将最新参数保存到window.name，方便刷新的时候实时更新参数
         if($('#searchInput').val()===""){
-            self.location="result.html"
+            alert("搜索内容不能为空！")
         }else{
-            if(localTime!=""){
-                var interval = new Date() - localTime;//当前时间减上一次点击的时间
-                localTime = new Date();//记录这一次点击的时间
-                if(interval<4000){//当两次进行搜索的时间不超过4秒弹出提示
-                    var dT=6;
-                    var dtInterval = setInterval(function(){
-                        dT--;
-                        if(dT<0){
-                            $('.backResult-layer').hide();
-                            $('.yys-loading').show();
-                            var reloadTime = setTimeout(function(){
-                                $('.yys-loading').hide();
-                                search();
-                                clearTimeout(reloadTime);
-                            },1000)
-                            clearInterval(dtInterval);
-                            dT = 6;
-                        }
-                        $('#yyedtime').text(dT);
-                    },1000);
-                    $('.backResult-layer').fadeIn();
-                    $(document).on('click','.backResult a',function(){
-                        $('.backResult-layer').hide();
-                        window.clearInterval(dtInterval);
-                        $('#yyedtime').text('6');//初始化返回页面的倒数总时间
-                    })
-                }else{
-                    //$('.yys-loading').show();
-                    noData();
-                }
-            }else{
-                localTime = new Date();//记录第一次点击的时间
-                noData();
-
-            }
+            noData();
         }
 
     };
+
+    //请求搜索出来的信息数据
     function noData() {
         $('.yys-loading').show();
         $.ajax({
@@ -408,73 +323,60 @@ $(function(){
                 "currentPage": currentPage
             },
             success: function (data) {
-                console.log(12323)
                 var searchT = new Date() - searchTime;
-                var content = $('#searchInput').val().replace(/^(\s|\u00A0)+/, '').replace(/(\s|\u00A0)+$/, '');
-                $('#searchTime').html(searchT / 1000);
+                var content = $('#searchInput').val().replace(/^(\s|\u00A0)+/, '').replace(/(\s|\u00A0)+$/, '');//去除首尾空字符串
                 $('.yys-loading').hide();
-                if (data.code === 200) {
-                    var list = data.data.list;
-                    $('#recordNum').html(data.data.page.totalRecord);
-                    $('.info-list-box').html('');//初始化dom中信息列表
-                    if (list.length > 0) {
-                        $('.noData').hide();
-                        for (var i = 0, max = list.length; i < max; i++) {
-                            var desc = list[i].desc;
-                            weburl = list[i].weburl;
-                            var subject = list[i].subject;
-                            var _id = list[i]._id;
-                            //ES6模板字符串生成搜索信息
-                            var infoList = '<div class="info-list"><div class="info-title"><input type="checkbox" class="mycheckbox"/><a href="' + weburl + '" target="blank">' + subject + '</a><span class="translate-btn"><a href="http://fanyi.baidu.com/transpage?query=' + weburl + '&from=auto&to=zh&source=url&render=1" target="_blank">翻译</a></span></div><div class="info-intro">' + desc + '</div><div class="info-url"><a href="' + weburl + '" target="_blank" title="'+weburl+'">' + weburl + '}</a></div><div class="getInfo-box" data-id="' + _id + '">提取联系信息</div></div>'
-                            infoList = infoList.replace(new RegExp(content, "igm"), "<font color='red' >" + content + "</font>");
-                            $('.info-list-box').append(infoList);
-                            //关键字变红
-                            //var myHtml = $('.info-list-box').html();//写在外面可以避免该类名的内容被改变，保证是初始加载时无关键字样式的dom
-                            //function toRed(content){
-                            //    //var myHtml = $('.info-content').html();
-                            //    var x = myHtml.replace(new RegExp(content,"igm"),"<font color='red' >"+content+"</font>");
-                            //    $('.info-list-box').html(x);
-                            //}
+                $('#searchTime').html(searchT / 1000);//搜索耗时
+                switch(data.code){
+                    case 200:
+                        var list = data.data.list;
+                        $('#recordNum').html(data.data.page.totalRecord);
+                        $('.info-list-box').html('');//初始化dom中信息列表
+                        if (list.length > 0) {
+                            $('.noData').hide();
+                            for (var i = 0, max = list.length; i < max; i++) {
+                                var desc = list[i].desc;
+                                weburl = list[i].weburl;
+                                var subject = list[i].subject;
+                                var _id = list[i]._id;
+                                var infoList = '<div class="info-list"><div class="info-title"><input type="checkbox" class="mycheckbox"/><a href="' + weburl + '" target="blank">' + subject + '</a><span class="translate-btn"><a href="http://fanyi.baidu.com/transpage?query=' + weburl + '&from=auto&to=zh&source=url&render=1" target="_blank">翻译</a></span></div><div class="info-intro">' + desc + '</div><div class="info-url"><a href="' + weburl + '" target="_blank" title="'+weburl+'">' + weburl + '}</a></div><div class="getInfo-box" data-id="' + _id + '">提取联系信息</div></div>'
+                                //关键字变红
+                                infoList = infoList.replace(new RegExp(content, "igm"), "<font color='red' >" + content + "</font>");
+                                $('.info-list-box').append(infoList);
+                            }
+                        } else {
+                            $('.noData').show();
                         }
-                    } else {
-                        $('.info-list-box').hide();
-                        $('.noData').show();
-                    }
-                } else {
-                    alert(data.msg)
+                    break;
+                    case 107:
+                        WarnLoading();
+                    break;
+                    default:
+                        alert(data.msg);
+                    break;
                 }
-            },error:function(a,b,c){
-                console.log(a.readyState)
-                console.log(b)
-                console.log(c)
+            },
+            error:function(){
+                console.log("请求失败1")
             }
         })
+    };
 
-
-            //if($('#searchInput').val()===""){
-            //    $('.info-list-box').hide();
-            //    $('.noData').show();
-            //}else{
-            //    $('.info-list-box').show();
-            //    $('.noData').hide();
-            //    toRed($('#searchInput').val());
-            //}
-        };
-
-        //鹰眼一下进行搜索
-        $(document).on('click', '#searchBtn', function () {
-            currentPage = 1;
-            search();
-        });
-        $('#searchInput').on("focus", function () {
-            document.onkeydown = function (e) {
-                var ev = document.all ? window.event : e;
-                if (ev.keyCode == 13) {
-                    currentPage = 1;
-                    search();
-                }
+    //鹰眼一下进行搜索
+    $(document).on('click', '#searchBtn', function () {
+        currentPage = 1;
+        search();
+    });
+    $('#searchInput').on("focus", function () {
+        document.onkeydown = function (e) {
+            var ev = document.all ? window.event : e;
+            if (ev.keyCode == 13) {
+                currentPage = 1;
+                search();
             }
-        })
+        }
+    })
+
 });
 //其他客户购买信息滚动效果
 function autoScroll(obj){

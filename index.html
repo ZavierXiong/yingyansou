@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/index.css"/>
     <link rel="stylesheet" href="css/common.css"/>
     <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-ajaxtransport-xdomainrequest/1.0.3/jquery.xdomainrequest.min.js" type="text/javascript" charset="utf-8"></script>
 </head>
 <body>
     <div class="yys-main">
@@ -88,6 +89,9 @@
                 <div class="search-input">
                     <input type="text" id="search-text" placeholder="小提示：当选择国家引擎时，输入本土语言关键词搜索效果更佳"/>
                     <a href="javascript:void(0);" class="search-btn" id="searchBtnIndex">鹰眼一下</a>
+                    <span class="sc-warn">
+                        搜索内容不能为空！
+                    </span>
                 </div>
             </div>
             <div class="search-warn" id="yys-language">
@@ -427,6 +431,43 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="backResult-layer">
+        <div class="dialog-mask"></div>
+        <div class="backResult">
+            <a href="javascript:void(0);">亲，翻这么快，您的宝贵客户信息都没仔细看吧！返回看看…</a>
+            <span class="red">我要看下一页 ···
+                <span id="yyedtime">6</span>
+                ···
+            </span>
+            <span class="gray">
+                 鹰眼搜QQ群：138123442
+            </span>
+            <img src="img/dingyue.jpg" alt="" class="dy-code"/>
+            <span class="gray fb">意见反馈</span>
+        </div>
+
+    </div>
+    <!--ie换浏览器提示-->
+    <div class="ieWarn">
+        <div class="c2r-1">
+            <h3>您的浏览器版本过低 , 可能会导致系统显示不正常及部分功能无法使用 ! </h3>
+        </div>
+        <div class="c2r-2">
+            <p>支持浏览器 : 火狐、谷歌、360极速模式、IE10.0以上版本</p>
+            <div class="c2r-img">
+                <img src="img/lq.png" alt=""/>
+            </div>
+        </div>
+        <span class="c2r-3-warn">最佳浏览器体验 : (点击下方下载)</span>
+        <div class="c2r-3">
+            <span>火狐浏览器: <a href="http://download.firefox.com.cn/releases/stub/official/zh-CN/Firefox-latest.exe">下载此浏览器</a></span>
+            <span>谷歌浏览器: <a href="http://down10.zol.com.cn/zoldown/ChromePortable_41.0.2243.0@327560@.exe">下载此浏览器</a></span>
+        </div>
+        <span class="c2r-4-btn">
+            忽略并继续使用
+        </span>
     </div>
 </body>
 <script charset="GBK" src="js/index.js"></script>

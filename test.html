@@ -5,17 +5,27 @@
     <title>Document</title>
 </head>
 <script src="js/jquery-3.2.1.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-ajaxtransport-xdomainrequest/1.0.3/jquery.xdomainrequest.min.js" type="text/javascript" charset="utf-8"></script>
 <body>
-<form name="input" action="" method="get">
-    First name:
-    <input type="text" name="FirstName" value="Mickey" size="20">
-    <br />Last name:
-    <input type="text" name="LastName" value="Mouse" size="20">
-    <br />
-    <input type="submit" value="Submit">
-</form>
+<button id="btn">请点击一下</button>
 </body>
 <script>
-    console.log("\u6377\u514b(\u6377\u514b\u8bed)")
+    var url = 'http://115.29.230.132:86'
+    $(document).on('click','#btn',function() {
+        $(function () {
+            $.ajaxSetup({crossDomain: true, xhrFields: {withCredentials: true}});
+            $.ajax({
+                type: "get",
+                url: url + "/yys/sightseer",
+//                url: "http://www.baidu.com",
+                success: function () {
+                    console.log(1)
+                },
+                error: function () {
+                    console.log(2)
+                }
+            })
+        })
+    });
 </script>
 </html>

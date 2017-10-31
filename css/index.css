@@ -114,6 +114,11 @@ body {
 .yys-main .yys-content .yys-search-bar {
   position: relative;
 }
+.yys-main .yys-content .yys-search-bar .yys-loading {
+  display: none;
+  z-index: 9999;
+  position: relative;
+}
 .yys-main .yys-content .yys-search-bar .yys-loading .dialog-mask {
   z-index: 998;
 }
@@ -149,9 +154,7 @@ body {
   width: 645px;
   height: 50px;
   z-index: 2;
-  line-height: 50px;
   margin: 0 auto;
-  overflow: hidden;
 }
 .yys-main .yys-content .yys-search-bar .search-input input {
   font-size: 14px;
@@ -180,6 +183,10 @@ body {
   /* Internet Explorer 10+ */
   color: #ccc;
 }
+.yys-main .yys-content .yys-search-bar .search-input .red-input {
+  border: 1px solid red;
+  border-right: 0;
+}
 .yys-main .yys-content .yys-search-bar .search-input .search-btn {
   cursor: pointer;
   display: inline-block;
@@ -187,10 +194,22 @@ body {
   color: #fff;
   font-size: 18px;
   width: 113px;
+  height: 50px;
+  line-height: 50px;
   float: left;
 }
 .yys-main .yys-content .yys-search-bar .search-input .search-btn:hover {
   background-color: #3b77ef;
+}
+.yys-main .yys-content .yys-search-bar .search-input .sc-warn {
+  display: none;
+  width: 100%;
+  float: left;
+  text-align: left;
+  margin-top: 10px;
+  font-size: 12px;
+  line-height: 12px;
+  color: red;
 }
 .yys-main .yys-content .search-warn {
   margin-top: 140px;
@@ -254,6 +273,71 @@ body {
 .yys-loading .loading-box i {
   display: inline-block;
   animation: loading 2s infinite linear;
+}
+.ieWarn {
+  display: none;
+  width: 900px;
+  margin: 0 auto;
+  padding: 50px 100px;
+}
+.ieWarn .c2r-1 h3 {
+  font-size: 22px;
+  font-weight: normal;
+  color: #333;
+  width: 100%;
+  display: inline-block;
+  margin: 0 auto;
+}
+.ieWarn .c2r-2 {
+  margin-top: 50px;
+}
+.ieWarn .c2r-2 p {
+  color: #666;
+  font-size: 12px;
+  margin: 0;
+}
+.ieWarn .c2r-img {
+  margin-top: 20px;
+}
+.ieWarn .c2r-3-warn {
+  display: inline-block;
+  margin-top: 50px;
+  font-size: 12px;
+  color: #666;
+}
+.ieWarn .c2r-3 {
+  color: #333;
+  font-size: 12px;
+  margin-top: 50px;
+}
+.ieWarn .c2r-3 span {
+  display: inline-block;
+  font-size: 12px;
+  width: 100%;
+  margin: 10px 0;
+}
+.ieWarn .c2r-3 span a {
+  margin-left: 10px;
+  color: #fff;
+  padding: 3px 15px;
+  background-color: #3e90e2;
+  border-radius: 4px;
+}
+.ieWarn .c2r-3 span a:hover {
+  background-color: #3453a3;
+}
+.ieWarn .c2r-4-btn {
+  cursor: pointer;
+  padding: 6px 12px;
+  background-color: #d9534f;
+  color: #fff;
+  font-size: 14px;
+  border-radius: 4px;
+  margin-top: 50px;
+  display: inline-block;
+}
+.ieWarn .c2r-4-btn:hover {
+  background-color: #e83e39;
 }
 @media screen and (max-height: 700px) {
   .yys-main .yys-content .search-warn {

@@ -5,11 +5,15 @@ var myTime=setInterval("timeAdd()",1000);
 var xhr_Link;
 $(function(){
     $.ajaxSetup({crossDomain: true, xhrFields: {withCredentials: true}});
+    jQuery.support.cors = true;
     $.ajax({
         type:"get",
-        //xhrFields: { withCredentials: true },
         url:url+"/yys/sightseer",
         success:function(data){
+            console.log(1)
+        },
+        error:function(){
+            console.log(2)
         }
     });
     //点击切换搜索内容
@@ -71,6 +75,30 @@ $(function(){
         }
     })();
 
+    function WarnLoading(){
+        var dT=6;
+        var dtInterval = setInterval(function(){
+            dT--;
+            if(dT<0){
+                $('.backResult-layer').hide();
+                $('.yys-loading').show();
+                var reloadTime = setTimeout(function(){
+                    $('.yys-loading').hide();
+                    searchIndex();
+                    clearTimeout(reloadTime);
+                },1000)
+                clearInterval(dtInterval);
+                dT = 6;
+            }
+            $('#yyedtime').text(dT);
+        },1000);
+        $('.backResult-layer').fadeIn();
+        $(document).on('click','.backResult a',function(){
+            $('.backResult-layer').hide();
+            window.clearInterval(dtInterval);
+            $('#yyedtime').text('6');//初始化返回页面的倒数总时间
+        })
+    };//点击过快弹出框
 //主页搜索
 //鹰眼一下
 //    $(function(){
@@ -78,6 +106,7 @@ $(function(){
         var searchWord = $('#search-text').val().replace(/^(\s|\u00A0)+/,'').replace(/(\s|\u00A0)+$/,'');//去掉首尾空格
         country = $('#countryName option:selected').val();
         if(searchType===3){
+            //搜索邮箱
             var reg=/^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+)\.)+([A-Za-z0-9-~\/])+$/;
             if(!reg.test(searchWord)){
                 alert("请输入以http://https://开头的邮箱网址！");
@@ -102,77 +131,50 @@ $(function(){
                     },
                     success:function(data){
                         closeLoad();
-                        if(data.code===200){
-                            $('.emailBody').html('');
-                            var myEmail = data.data.emails;//所有邮箱
-                            var companyName = data.data.company_name===null?"未知":data.data.company_name;
-                            var location_country = data.data.location_country===null?"未知":data.data.location_country;
-                            var contact_phone = data.data.contact_phone===null?"无":data.data.contact_phone;
-                            var Facebook = data.data.facebook===null?"未知":data.data.facebook;
-                            var Linkedin = data.data.linkedin===null?"未知":data.data.linkedin;
-                            var Twitter = data.data.twitter===null?"未知":data.data.twitter;
-                            var Google = data.data.google===null?"未知":data.data.google;
-                            var Youtobe = data.data.youtube===null?"未知":data.data.youtube;
-                            var Pintertst = data.data.pintertst===null?"未知":data.data.pintertst;
-                            var doTime  = data.data.doTime;
-                            var searchDate = getLocalTime(doTime[doTime.length-1]);
-                            var emailT = "";
-                            for(var i= 0,max=myEmail.length;i<max;i++){
-                                var emailUrl = myEmail[i].email;
-                                if(max>0){
-                                    var emailTr = '<tr><td><a href="'+emailUrl+'" class="info-email">'+emailUrl+'</a></td><td><a href="javascript:void(0);" class="info-vertify">验证</a></td><td><a href="javascript:void(0);" default="default" class="info-contact">立刻联系</a></td></tr>'
-                                    emailT+=emailTr;
-                                    $('.noData-table').hide();
-                                }else{
-                                    $('.noData-table').show();
+                        switch(data.code){
+                            case 200:
+                                InfoLayer(data);//客户详细信息弹框
+                            break;
+                            case 103://当未查询到准确数据时的其他相似信息推送
+                                alert(data.msg);
+                                InfoLayer(data);
+                            break;
+                            case 105://用户无权限看到更多信息时
+                                var buyEmail = confirm(data.msg+'。是否升级账号？');
+                                if(buyEmail){
+                                    location.href = "buy.html";
                                 }
-                            }
-                            $('.emailBody').html(emailT);
-                            $('#company_name').html(companyName);
-                            $('#location_country').html(location_country);
-                            $('#contact_phone').html(contact_phone);
-                            $('#doTime').html(searchDate);
-                            $('#Facebook').html(Facebook);
-                            $('#Linkedin').html(Linkedin);
-                            $('#Twitter').html(Twitter);
-                            $('#Google').html(Google);
-                            $('#Youtobe').html(Youtobe);
-                            $('#Pintertst').html(Pintertst);
-                            $('.client-info').fadeIn();
-                        }else if(data.code ===105){
-                            var buyEmail = confirm(data.msg+'。是否升级账号？');
-                            if(buyEmail){
-                                location.href = "result.html";
-                            }
-                        }else{
-                            alert(data.msg);
+                            break;
+                            case 107://用户点击过快时提示信息
+                                WarnLoading();
+                            break;
+                            default:
+                                alert(data.msg);
+                            break;
                         }
                     }
                 });
             }
         }else{
-            $('.yys-loading').show();
+            //搜索客户
             if(searchWord!=""){
-                $.ajax({
-                    type:"post",
-                    url:url+"/yys/search",
-                    //xhrFields: { withCredentials: true },
-                    data: {
-                        searchType: searchType,
-                        searchWord: searchWord,
-                        country: country,
-                        currentPage: 1
-                    },
-                    success:function(){
-                        $('.yys-loading').stop(true,false).hide();
-                        location.href = "result.html?"+"searchType="+searchType+"&"+"searchWord="+searchWord+"&"+"country="+country;
-                    }
-                });
+                window.name="searchType="+searchType+"&"+"searchWord="+searchWord+"&"+"country="+country;
+                location.href = 'result.html';
             }else{
-                location.href = "index.html"
+                $(".sc-warn").show(200);
+                $('#search-text').addClass('red-input');
             }
         }
     }
+
+    //搜索框内容不能为空
+    function searchWarn(){
+        $(document).on('focus','#search-text',function(){
+            $(".sc-warn").hide(200);
+            $('#search-text').removeClass('red-input');
+        })
+    }
+    searchWarn();
     //提取信息中的邮箱验证
     $(document).on('click','.info-vertify',function(){
         var myEmail = $(this).parent().siblings().children('.info-email').attr('href');
@@ -221,4 +223,15 @@ $(function(){
     }
     keyDownSearch();
     //});
+    if(navigator.appName == "Microsoft Internet Explorer"&&parseInt(navigator.appVersion.split(";")[1].replace(/[ ]/g, "").replace("MSIE",""))<10){
+        $('.yys-main').hide();
+        $('.ieWarn').show();
+    }else{
+        $('.yys-main').show();
+        $('.ieWarn').hide();
+    }
+    $(document).on('click','.c2r-4-btn',function(){
+        $('.yys-main').show();
+        $('.ieWarn').hide();
+    })
 })
